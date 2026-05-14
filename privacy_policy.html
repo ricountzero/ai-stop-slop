@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AI Stop Slop</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #ffffff;
+      color: #1a1a2e;
+      line-height: 1.7;
+      padding: 48px 20px 80px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, #1a1a6e, #4444cc);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .logo-name { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .effective {
+      font-size: 13px;
+      color: #8888aa;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 32px 0 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #333350;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin: 8px 0 12px 20px;
+    }
+    li {
+      font-size: 15px;
+      color: #333350;
+      margin-bottom: 6px;
+    }
+
+    .highlight {
+      background: #f0f4ff;
+      border-left: 3px solid #5050cc;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .highlight p { margin: 0; color: #2a2a5e; font-weight: 500; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 14px;
+    }
+    th {
+      background: #f4f4f8;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #333350;
+      border: 1px solid #e0e0ea;
+    }
+    td {
+      padding: 10px 14px;
+      border: 1px solid #e0e0ea;
+      color: #333350;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    .badge-yes {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .badge-no {
+      display: inline-block;
+      background: #fce8e8;
+      color: #c62828;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e8e8f0;
+      margin: 40px 0;
+    }
+
+    .contact {
+      font-size: 14px;
+      color: #8888aa;
+    }
+    .contact a { color: #5050cc; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="logo-row">
+    <div class="logo-icon">👁</div>
+    <span class="logo-name">AI Stop Slop</span>
+  </div>
+
+  <h1>Privacy Policy</h1>
+  <p class="effective">Effective date: May 14, 2025</p>
+
+  <div class="highlight">
+    <p>AI Stop Slop does not collect, store, or transmit any personal data. All image analysis runs entirely inside your browser.</p>
+  </div>
+
+  <h2>1. Overview</h2>
+  <p>AI Stop Slop ("the Extension") is a Google Chrome extension that detects AI-generated images on web pages and marks them with a visible badge. This Privacy Policy explains what data the Extension accesses, how it is used, and what is never done with it.</p>
+
+  <h2>2. Data the Extension accesses</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Purpose</th>
+        <th>Sent externally?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Image URLs on the current page</td>
+        <td>Checked against a list of known AI image service patterns (heuristic detection)</td>
+        <td><span class="badge-no">Never</span></td>
+      </tr>
+      <tr>
+        <td>Image pixel data</td>
+        <td>Drawn to an off-screen &lt;canvas&gt; to compute local colour and edge statistics</td>
+        <td><span class="badge-no">Never</span></td>
+      </tr>
+      <tr>
+        <td>Image alt text, title, nearby caption text</td>
+        <td>Scanned locally for AI-related keywords</td>
+        <td><span class="badge-no">Never</span></td>
+      </tr>
+      <tr>
+        <td>Extension settings (enabled state, sensitivity, image size threshold)</td>
+        <td>Stored in <code>chrome.storage.sync</code> to persist user preferences across devices</td>
+        <td><span class="badge-no">Never</span> (synced by Chrome, not the Extension)</td>
+      </tr>
+      <tr>
+        <td>Analysis results per image URL (cache)</td>
+        <td>Stored in <code>chrome.storage.local</code> for 24 hours to avoid reanalysing the same image</td>
+        <td><span class="badge-no">Never</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. What the Extension does NOT do</h2>
+  <ul>
+    <li>Does not collect or transmit browsing history, URLs visited, or page content.</li>
+    <li>Does not upload image data to any server or third-party service.</li>
+    <li>Does not use analytics, crash reporting, or telemetry of any kind.</li>
+    <li>Does not display advertisements.</li>
+    <li>Does not create user accounts or require authentication.</li>
+    <li>Does not communicate with any remote server whatsoever.</li>
+  </ul>
+
+  <h2>4. Permissions explained</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Permission</th>
+        <th>Why it is needed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>activeTab</code></td>
+        <td>Allows re-injecting the scanner when the user clicks "Rescan" in the popup.</td>
+      </tr>
+      <tr>
+        <td><code>storage</code></td>
+        <td>Saves user settings and local analysis cache. No personal data is stored.</td>
+      </tr>
+      <tr>
+        <td><code>scripting</code></td>
+        <td>Programmatically re-injects the content script on manual rescan.</td>
+      </tr>
+      <tr>
+        <td>Content script on all URLs (<code>&lt;all_urls&gt;</code>)</td>
+        <td>The Extension must run on every page to automatically detect AI images as the user browses. No data is read from pages beyond image elements and their associated text.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Local storage</h2>
+  <p>The Extension stores two categories of data locally on your device:</p>
+  <ul>
+    <li><strong>Settings</strong> — your preferences (on/off toggle, sensitivity threshold, minimum image size). Synced across your Chrome profile via Google's own sync infrastructure.</li>
+    <li><strong>Analysis cache</strong> — a mapping of image URL hashes to detection results, kept for 24 hours to improve performance. You can clear this at any time via the Settings page inside the Extension.</li>
+  </ul>
+  <p>Neither category contains personal information.</p>
+
+  <h2>6. Third-party services</h2>
+  <p>The Extension does not integrate with, contact, or share data with any third-party service, API, or analytics platform.</p>
+
+  <h2>7. Children's privacy</h2>
+  <p>The Extension does not knowingly collect any information from anyone, including children under the age of 13.</p>
+
+  <h2>8. Changes to this policy</h2>
+  <p>If this Privacy Policy is updated, the new version will be published at the same URL. The effective date at the top of this page will be updated accordingly.</p>
+
+  <hr>
+
+  <p class="contact">Questions? Contact: <a href="mailto:aliaksiejm@gmail.com">aliaksiejm@gmail.com</a></p>
+
+</div>
+</body>
+</html>
