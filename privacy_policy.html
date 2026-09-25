@@ -143,7 +143,7 @@
   </div>
 
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: May 14, 2025</p>
+  <p class="effective">Effective date: September 25, 2026</p>
 
   <div class="highlight">
     <p>AI Stop Slop does not collect, store, or transmit any personal data. All image analysis runs entirely inside your browser.</p>
@@ -169,12 +169,17 @@
         <td><span class="badge-no">Never</span></td>
       </tr>
       <tr>
-        <td>Image pixel data</td>
-        <td>Drawn to an off-screen &lt;canvas&gt; to compute local colour and edge statistics</td>
+        <td>Image files on the current page</td>
+        <td>Downloaded from the same server the page already loads them from, then analysed inside your browser: embedded provenance metadata (C2PA / IPTC, AI generator parameters, camera EXIF) and — only if you enable the experimental option — colour and edge statistics</td>
         <td><span class="badge-no">Never</span></td>
       </tr>
       <tr>
-        <td>Image alt text, title, nearby caption text</td>
+        <td>Neural network model (optional feature, off by default)</td>
+        <td>When you enable it, a 190 MB image-classifier file is downloaded once from the project's GitHub Releases page, checked against a fixed SHA-256 checksum and stored in the browser's Cache Storage. Images are classified locally with it. Deleting the model or turning the feature off removes it from memory; "Delete downloaded model" removes the file.</td>
+        <td><span class="badge-no">Never</span> (nothing is uploaded; the download itself contains no user data)</td>
+      </tr>
+      <tr>
+        <td>Image alt text, title and caption</td>
         <td>Scanned locally for AI-related keywords</td>
         <td><span class="badge-no">Never</span></td>
       </tr>
@@ -198,7 +203,7 @@
     <li>Does not use analytics, crash reporting, or telemetry of any kind.</li>
     <li>Does not display advertisements.</li>
     <li>Does not create user accounts or require authentication.</li>
-    <li>Does not communicate with any remote server whatsoever.</li>
+    <li>Does not communicate with any server other than the image hosts a page already uses — and only to download those same images for local analysis. Nothing is sent to the developer.</li>
   </ul>
 
   <h2>4. Permissions explained</h2>
@@ -212,16 +217,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><code>activeTab</code></td>
-        <td>Allows re-injecting the scanner when the user clicks "Rescan" in the popup.</td>
-      </tr>
-      <tr>
         <td><code>storage</code></td>
         <td>Saves user settings and local analysis cache. No personal data is stored.</td>
       </tr>
       <tr>
-        <td><code>scripting</code></td>
-        <td>Programmatically re-injects the content script on manual rescan.</td>
+        <td>Host access to all sites (<code>&lt;all_urls&gt;</code>)</td>
+        <td>Images are usually served from other domains (CDNs), and browsers block extensions from reading them inside the page. This permission lets the Extension download a page's images to check their metadata locally. Requests carry no cookies.</td>
+      </tr>
+      <tr>
+        <td><code>offscreen</code></td>
+        <td>Runs the optional neural classifier in a hidden extension page, which (unlike the service worker) can use multiple CPU threads.</td>
       </tr>
       <tr>
         <td>Content script on all URLs (<code>&lt;all_urls&gt;</code>)</td>
